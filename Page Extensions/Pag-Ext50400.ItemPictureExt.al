@@ -1,4 +1,4 @@
-pageextension 50400 ItemPictureExt extends "Item Picture"
+pageextension 50448 ItemPictureExt extends "Item Picture"
 {
     actions
     {

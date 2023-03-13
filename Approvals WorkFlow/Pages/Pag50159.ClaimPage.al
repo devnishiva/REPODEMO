@@ -1,8 +1,8 @@
-page 50151 ClaimPage
+page 50159 ClaimPage
 {
     Caption = 'ClaimPage';
     PageType = Card;
-    SourceTable = ClaimManagement;
+    SourceTable = ClaimManagement1;
 
     layout
     {
@@ -97,10 +97,21 @@ page 50151 ClaimPage
             }
         }
     }
+
+    trigger OnAfterGetRecord()
+    var
+        myInt: Integer;
+    begin
+        OpenApprovalEntriesExitForCUrrUser := ApprovalsMgmt.HasOpenApprovalEntriesForCurrentUser(Rec.RecordId);
+        OpenApprovalEntriesExist := ApprovalsMgmt.HasOpenApprovalEntries(Rec.RecordId);
+        CanCancelApprovalsForRecord := ApprovalsMgmt.CanCancelApprovalForRecord(Rec.RecordId);
+        WorkFlowWebhookMgt.GetCanRequestAndCanCancel(Rec.RecordId, CanRequsestApprovalForFlow, CanCancelApprovalsForFlow);
+    end;
+
     var
         OpenApprovalEntriesExitForCUrrUser: Boolean;
         ApprovalsMgmt: Codeunit "Approvals Mgmt.";
-        approvalsMgmtCut: Codeunit Approvals;
+        //approvalsMgmtCut: Codeunit Approvals;
         WorkFlowWebhookMgt: Codeunit 1543;
         OpenApprovalEntriesExist: Boolean;
         CanCancelApprovalsForRecord: Boolean;

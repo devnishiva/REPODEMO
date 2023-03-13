@@ -1,4 +1,4 @@
-page 50302 PictureURLDialog
+page 50308 PictureURLDialog
 {
     PageType = StandardDialog;
     Caption = 'PictureURLDilog';

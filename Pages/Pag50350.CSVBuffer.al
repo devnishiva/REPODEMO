@@ -1,9 +1,9 @@
-page 50300 "CSV Buffer"
+page 50350 "CSV Buffer"
 {
     ApplicationArea = All;
     Caption = 'CSV Buffer';
     PageType = Worksheet;
-    SourceTable = "CSV Buffer import";
+    SourceTable = "CSV Buffer import1";
     UsageCategory = Tasks;
     AutoSplitKey = true;
     DelayedInsert = true;
@@ -128,7 +128,7 @@ page 50300 "CSV Buffer"
 
     local procedure Importcsvdata()
     var
-        GsImportBuffer: Record "CSV Buffer import";
+        GsImportBuffer: Record "CSV Buffer import1";
         RowNo: Integer;
         ColNo: Integer;
         LineNo: Integer;

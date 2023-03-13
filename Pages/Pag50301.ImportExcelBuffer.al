@@ -1,10 +1,10 @@
-page 50301 ImportExcelBuffer
+page 50309 ImportExcelBuffer
 {
     UsageCategory = Tasks;
     ApplicationArea = ALL;
     Caption = 'ImportExcelBuffer';
     PageType = Worksheet;
-    SourceTable = "Excel Import Buffer ";
+    SourceTable = "Excel Import Buffer";
     AutoSplitKey = true;
     DelayedInsert = true;
     InsertAllowed = false;
@@ -189,7 +189,7 @@ page 50301 ImportExcelBuffer
 
     local procedure ImportExcelData()
     var
-        ExcelImport: Record "Excel Import Buffer ";
+        ExcelImport: Record "Excel Import Buffer";
         RowNo: Integer;
         ColNo: Integer;
         LineNo: Integer;
@@ -228,7 +228,7 @@ page 50301 ImportExcelBuffer
         Message(ExcelImportSuccess);
     end;
 
-    local procedure ExportExcelBuffer(var ImportExcel: Record "Excel Import Buffer ")
+    local procedure ExportExcelBuffer(var ImportExcel: Record "Excel Import Buffer")
     var
         TempExcelBuffer: Record "Excel Buffer" temporary;
         ImportExcel1: Label 'Product Entries';

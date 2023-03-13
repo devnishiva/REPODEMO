@@ -1,4 +1,4 @@
-table 50300 "CSV Buffer import"
+table 50341 "CSV Buffer import1"
 {
     DataClassification = CustomerContent;
     Caption = 'CSV Buffer import';

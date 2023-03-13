@@ -1,9 +1,9 @@
-page 50155 ClaimList
+page 50125 ClaimList
 {
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Lists;
-    SourceTable = ClaimManagement;
+    SourceTable = ClaimManagement1;
     CardPageId = ClaimPage;
     Editable = false;
 

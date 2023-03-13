@@ -1,13 +1,24 @@
-table 50150 ClaimManagement
+table 50152 ClaimManagement1
 {
     DataClassification = CustomerContent;
-
+    Caption = 'Claim Management';
     fields
     {
         field(1; "No."; Code[50])
         {
             DataClassification = CustomerContent;
             Caption = 'No.';
+            trigger OnValidate()
+            var
+                marketingsetup: Record "Marketing Setup";
+                NoseriecManagamnet: Codeunit NoSeriesManagement;
+            begin
+                if "No." <> xRec."No." then begin
+                    marketingsetup.Get();
+                    NoseriecManagamnet.TestManual(marketingsetup."Claim Nos");
+                    "No. Series" := '';
+                end;
+            end;
         }
         field(2; "Claim Type"; Option)
         {
@@ -64,6 +75,12 @@ table 50150 ClaimManagement
             OptionMembers = Open,"Approvel Opending",Relesed;
             OptionCaption = 'Open,Approvel Opending,Relesed';
         }
+        field(11; "No. Series"; Code[50])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'No. Series';
+            TableRelation = "No. Series";
+        }
 
     }
 
@@ -77,4 +94,16 @@ table 50150 ClaimManagement
 
     var
         myInt: Integer;
+
+    trigger OnInsert()
+    var
+        marketingsetup: Record "Marketing Setup";
+        NoseriecManagamnet: Codeunit NoSeriesManagement;
+    begin
+        if "No." = '' then begin
+            marketingsetup.Get();
+            marketingsetup.TestField("Claim Nos");
+            NoseriecManagamnet.InitSeries(marketingsetup."Claim Nos", xRec."No. Series", 0D, "No.", "No. Series");
+        end;
+    end;
 }

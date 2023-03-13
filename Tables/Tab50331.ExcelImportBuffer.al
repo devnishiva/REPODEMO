@@ -1,4 +1,4 @@
-table 50301 "Excel Import Buffer "
+table 50331 "Excel Import Buffer"
 {
     Caption = 'Excel Import Buffer ';
     DataClassification = ToBeClassified;
@@ -81,6 +81,6 @@ table 50301 "Excel Import Buffer "
         }
     }
     var
-    cus :Page "Customer Card";
-    cust : Record Customer;
+        cus: Page "Customer Card";
+        cust: Record Customer;
 }

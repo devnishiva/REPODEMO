@@ -17,7 +17,8 @@
             "enableLongRunningSqlStatements": true,
             "enableSqlInformationDebugger": true,
             "tenant": "default",
-            "port": 9049
+            "port": 9049,
+            "schemaUpdateMode": "ForceSync"
         }
     ]
 }
